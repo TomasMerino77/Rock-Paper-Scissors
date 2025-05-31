@@ -24,6 +24,9 @@ function playRound(){
         tieScore++;
         console.log("Tie");
     }
+    else if (userChoice === "Incorrect value"){
+        console.log("Invalid round");
+    }
     else {
         userScore++;
         console.log("User Wins");
@@ -43,6 +46,6 @@ function parsePlay(choice){
                     return "Paper";
                 case 2:
                     return "Scissors";
-                default: console.log("Incorrect value");
+                default: return "Incorrect value";
             }
 }
