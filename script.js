@@ -3,6 +3,35 @@ let userScore = 0;
 let computerScore = 0;
 let tieScore = 0;
 
+function playGame(){
+    console.clear();
+    userScore = 0;
+    computerScore = 0;
+    tieScore = 0;
+    let roundCounter = 0;
+
+    while (roundCounter < 5){
+        playRound();
+        roundCounter++;
+    }
+
+    console.log(`Total scores:
+        User: ${userScore}.
+        Computer: ${computerScore}.
+        Ties: ${tieScore}.`);
+        
+    if (userScore < computerScore){
+        console.log("Computer wins the game");
+    }
+    else if (userScore > computerScore){
+        console.log("User wins the game");
+    }
+    else {
+        console.log("Its a tie!");
+    }
+}
+
+
 function playRound(){
     let userChoice = prompt("Enter a value between 0 and 2.\n0 = Rock. 1 = Paper. 2 = Scissors");
     userChoice = parsePlay(+userChoice);
@@ -32,10 +61,7 @@ function playRound(){
         console.log("User Wins");
     }
 
-    console.log(`Total scores:
-        User: ${userScore}.
-        Computer: ${computerScore}.
-        Ties: ${tieScore}.`)
+    
 }
     
 function parsePlay(choice){
