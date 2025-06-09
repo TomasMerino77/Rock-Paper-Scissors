@@ -3,37 +3,54 @@ let userScore = 0;
 let computerScore = 0;
 let tieScore = 0;
 
-function playGame(){
-    console.clear();
-    userScore = 0;
-    computerScore = 0;
-    tieScore = 0;
-    let roundCounter = 0;
 
-    while (roundCounter < 5){
-        playRound();
-        roundCounter++;
-    }
+// function playGame(){
+//     console.clear();
+//     userScore = 0;
+//     computerScore = 0;
+//     tieScore = 0;
+//     let roundCounter = 0;
 
-    console.log(`Total scores:
-        User: ${userScore}.
-        Computer: ${computerScore}.
-        Ties: ${tieScore}.`);
+//     while (roundCounter < 5){
+//         playRound();
+//         roundCounter++;
+//     }
+
+//     console.log(`Total scores:
+//         User: ${userScore}.
+//         Computer: ${computerScore}.
+//         Ties: ${tieScore}.`);
         
-    if (userScore < computerScore){
-        console.log("Computer wins the game");
-    }
-    else if (userScore > computerScore){
-        console.log("User wins the game");
-    }
-    else {
-        console.log("Its a tie!");
-    }
-}
+//     if (userScore < computerScore){
+//         console.log("Computer wins the game");
+//     }
+//     else if (userScore > computerScore){
+//         console.log("User wins the game");
+//     }
+//     else {
+//         console.log("Its a tie!");
+//     }
+// }
 
+const choicesContainer = document.querySelector("#choicesContainer");
+choicesContainer.addEventListener("click", (event) => {
+    let target = event.target;
 
-function playRound(){
-    let userChoice = prompt("Enter a value between 0 and 2.\n0 = Rock. 1 = Paper. 2 = Scissors");
+    switch (target.id) {
+        case "rock":
+            playRound(0);
+            break;
+        case "paper":
+            playRound(1);
+            break;
+        case "scissors":
+            playRound(2);
+            break;
+    }
+});
+
+function playRound(userChoice){
+    // let userChoice = prompt("Enter a value between 0 and 2.\n0 = Rock. 1 = Paper. 2 = Scissors");
     userChoice = parsePlay(+userChoice);
     console.log(`User choice: ${userChoice}`);
     
@@ -75,3 +92,4 @@ function parsePlay(choice){
                 default: return "Incorrect value";
             }
 }
+

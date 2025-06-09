@@ -1,0 +1,15 @@
+#choicesContainer {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    
+}
+
+button:hover {
+    background-color: orange;
+}
