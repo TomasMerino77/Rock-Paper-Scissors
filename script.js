@@ -3,6 +3,12 @@ let userScore = 0;
 let computerScore = 0;
 let tieScore = 0;
 
+let userSCR = document.querySelector("#userSCR")
+userSCR.innerHTML = userScore;
+let computerSCR = document.querySelector("#computerSCR");
+computerSCR.innerHTML = computerScore;
+let tieSCR = document.querySelector("#tieSCR");
+tieSCR.innerHTML = tieScore;
 
 // function playGame(){
 //     console.clear();
@@ -64,18 +70,18 @@ function playRound(userChoice){
         computerChoice === "Scissors" && userChoice === "Paper"
     ) {
         computerScore++;
-        console.log("Computer wins");
+        computerSCR.innerHTML = computerScore;
+        // console.log("Computer wins");
     }
     else if (computerChoice === userChoice) {
         tieScore++;
-        console.log("Tie");
-    }
-    else if (userChoice === "Incorrect value"){
-        console.log("Invalid round");
+        tieSCR.innerHTML = tieScore;
+        // console.log("Tie");
     }
     else {
         userScore++;
-        console.log("User Wins");
+        userSCR.innerHTML = userScore;
+        // console.log("User Wins");
     }
 
     
@@ -89,7 +95,6 @@ function parsePlay(choice){
                     return "Paper";
                 case 2:
                     return "Scissors";
-                default: return "Incorrect value";
             }
 }
 
