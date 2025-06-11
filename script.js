@@ -10,6 +10,11 @@ computerSCR.innerHTML = computerScore;
 let tieSCR = document.querySelector("#tieSCR");
 tieSCR.innerHTML = tieScore;
 
+let userHand = document.querySelector("#userHand");
+let computerHand = document.querySelector("#computerHand");
+let result = document.querySelector("#result");
+
+
 // function playGame(){
 //     console.clear();
 //     userScore = 0;
@@ -58,33 +63,34 @@ choicesContainer.addEventListener("click", (event) => {
 function playRound(userChoice){
     // let userChoice = prompt("Enter a value between 0 and 2.\n0 = Rock. 1 = Paper. 2 = Scissors");
     userChoice = parsePlay(+userChoice);
-    console.log(`User choice: ${userChoice}`);
+    // console.log(`User choice: ${userChoice}`);
     
     let computerChoice = Math.floor(Math.random() * 3);
     computerChoice = parsePlay(computerChoice);
-    console.log(`Computer choice: ${computerChoice}`);
+    // console.log(`Computer choice: ${computerChoice}`);
     
+    userHand.innerHTML = userChoice;
+    computerHand.innerHTML = computerChoice;
+
     if (
         computerChoice === "Rock" && userChoice === "Scissors" ||
         computerChoice === "Paper" && userChoice === "Rock" ||
         computerChoice === "Scissors" && userChoice === "Paper"
     ) {
         computerScore++;
+        result.innerHTML = "Computer wins";
         computerSCR.innerHTML = computerScore;
-        // console.log("Computer wins");
     }
     else if (computerChoice === userChoice) {
         tieScore++;
+        result.innerHTML = "Tie";
         tieSCR.innerHTML = tieScore;
-        // console.log("Tie");
     }
     else {
         userScore++;
+        result.innerHTML = "User Wins";
         userSCR.innerHTML = userScore;
-        // console.log("User Wins");
     }
-
-    
 }
     
 function parsePlay(choice){
