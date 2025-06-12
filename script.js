@@ -91,6 +91,25 @@ function playRound(userChoice){
         result.innerHTML = "User Wins";
         userSCR.innerHTML = userScore;
     }
+
+
+    if (userScore === 5 ||
+        computerScore === 5) {
+            let winner = (userScore === 5) ? "User" : "Computer";
+            let loserScore = (userScore === 5) ? computerScore : userScore;
+            alert(`Game finished!
+            ${winner} won 5 - ${loserScore}
+            Ties: ${tieScore}`);
+
+            //Resets score board and last round info
+            userSCR.innerHTML = userScore = 0;
+            computerSCR.innerHTML = computerScore = 0;
+            tieSCR.innerHTML = tieScore = 0;
+            userHand.innerHTML = "";
+            computerHand.innerHTML = "";
+            result.innerHTML = "";
+
+        }
 }
     
 function parsePlay(choice){
